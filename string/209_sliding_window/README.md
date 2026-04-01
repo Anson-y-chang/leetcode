@@ -6,5 +6,4 @@ Given an array of positive integers nums and a positive integer target, return t
 using two pointer to control windows size, and maintain resolution 
 
 // time complexity
-direct: O(n)
-binary: O(logn)
+best practive: O(n)
