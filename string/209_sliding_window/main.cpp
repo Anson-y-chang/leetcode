@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <ostream>
 #include <vector>
@@ -33,9 +34,8 @@ public:
 
 int main() {
   Solution s;
-  int target = 11;
-  vector<int> nums = {1, 1, 1, 1, 1, 1, 1, 1};
-  // vector<int> nums = {1, 4, 4};
+  int target = 4;
+  vector<int> nums = {1, 4, 4};
 
   cout << s.minSubArrayLen(target, nums) << endl;
 }

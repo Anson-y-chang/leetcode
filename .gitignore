@@ -1,0 +1,14 @@
+# Compiled executables
+main
+a.out
+*.out
+*.exe
+
+# LSP and IDE files
+.clangd/
+.clangd
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
