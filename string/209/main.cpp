@@ -6,29 +6,36 @@ using namespace std;
 
 class Solution {
 public:
-  int removeElement(vector<int> &nums, int val) {
+  int minSubArrayLen(int target, vector<int> &nums) {
+    int res = INT_MAX;
+    int left = 0;
+    int sum = 0;
     int count = 0;
     for (int i = 0; i < nums.size(); i++) {
-      if (nums[i] != val) {
-        nums[count] = nums[i];
-        count++;
+      sum += nums[i];
+      count++;
+      while (sum - nums[left] >= target) {
+        sum -= nums[left];
+        left++;
+        count--;
+      }
+      if (sum >= target) {
+        res = min(res, count);
       }
     }
 
-    return count;
+    if (sum < target) {
+      return 0;
+    }
+    return res;
   }
 };
 
-// Input: nums = [0,1,2,3,2,0,4,2], val = 2
-// Output: 5, nums = [0,1,4,0,3,_,_,_,_]
 int main() {
   Solution s;
-  vector<int> nums = {0, 1, 2, 2, 3, 0, 4, 2};
-  int val = 2;
+  int target = 11;
+  vector<int> nums = {1, 1, 1, 1, 1, 1, 1, 1};
+  // vector<int> nums = {1, 4, 4};
 
-  cout << s.removeElement(nums, val) << endl;
-  for (int i = 0; i < nums.size(); i++) {
-    cout << nums[i] << " ";
-  }
-  cout << endl;
+  cout << s.minSubArrayLen(target, nums) << endl;
 }
